@@ -21,23 +21,24 @@
  * by using the padding technique, but you may set them up in any dimensions
  * you like based on your site design.
  */
-.card {
-  position: relative;
-  float: left;
-  padding-bottom: 25%;
-  width: 25%;
-  text-align: center;
-}
+ .card {
+   position: relative;
+   float: left;
+   padding-bottom: 25%;
+   width: 25%;
+   text-align: center;
+   margin-bottom: 2px;
+ }
 
-.card:nth-child(1) {
-  margin-left: -3px;
-  margin-right: 1px;
-}
+ .card:nth-child(4n+1) {
+   margin-left: -3px;
+   margin-right: 1px;
+ }
 
-.card:nth-child(2),
-.card:nth-child(3) {
-  margin-right: 1px;
-}
+ .card:nth-child(4n+2),
+ .card:nth-child(4n+3) {
+   margin-right: 1px;
+ }
 
 /* card fronts and backs */
 .card__front,

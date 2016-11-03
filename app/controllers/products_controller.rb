@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 		if params[:search]
 			@products = Product.search(params[:search]).order("created_at DESC")
 		else
-			@products = Product.first(4)
+			@products = Product.all
 		end
 
 		unless @products.any?

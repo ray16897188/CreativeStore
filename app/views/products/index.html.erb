@@ -1,10 +1,4 @@
-<div class="container">
-
-  <br>
-
-  <div class="container">
-
-      <div class="section">
+<div class="section">
         <h2 class="section__title">特色服务</h2>
 
         <div class="section__content clearfix">
@@ -12,7 +6,7 @@
         <% @products.each do |product|%>
 
           <div class="card effect__hover">
-            
+
             <div class="card__front">
             	<%= render partial: "common/product_image", locals: {product: product, size: "thumb"} %>
             </div>
@@ -25,18 +19,7 @@
           </div>
 
         <% end %>
-
-
-
         </div><!-- /card -->
-
-
-      </div><!-- /section -->
-
-      
-
-      <div class="section">
-        <h2 class="section__title">精彩推荐</h2>
         <div class="section__content clearfix">
           <div class="card effect__random" data-id="1">
             <div class="card__front">
@@ -71,10 +54,3 @@
             </div>
           </div>
         </div><!-- /card -->
-      </div><!-- /section -->
-
-    </div>
-
-</div>
-
-
