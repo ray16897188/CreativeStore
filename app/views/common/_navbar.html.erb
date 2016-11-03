@@ -1,61 +1,96 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">京东商城</a>
-        </div>
+    <!-- NAVBAR -->
+        <nav class="navbar navbar-main navbar-default" role="navigation">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="javascript:void(0)"><img src="<%= asset_path "logo.png" %>" alt=""></a>
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-
-                <!-- 搜索条 -->
-                <li><%= form_tag products_path, method: :get, class: "navbar-form navbar-left" do %>
-                    <%= text_field_tag :search, params[:search], class: "form-control" %>
-                    <%= submit_tag "搜索", class: "btn btn-default" %>
-                <% end %></li> 
-               
-
-                <% if !current_user %>
-                    <li><%= link_to("注册", new_user_registration_path) %></li>
-                    <li><%= link_to("登录", new_user_session_path) %></li>
-                <% else %>
-                    <li>
-                        <%= link_to carts_path do %>
-                            <i class="fa fa-shopping-cart"> 购物车</i> （<%= new_items_for_current_user.sum("quantity") %>）
-                        <% end %>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="javascript:void(0)">Home</a></li>
+                <li class="dropdown megaDropMenu">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">Shop</b></a>
+                  <ul class="dropdown-menu row">
+                    <li class="col-sm-3 col-xs-12">
+                      <ul class="list-unstyled">
+                        <li>Products Grid View</li>
+                        <li><a href="product-grid-left-sidebar.html">Products Sidebar Left</a></li>
+                        <li><a href="product-grid-right-sidebar.html">Products Sidebar Right</a></li>
+                        <li><a href="product-grid-3-col-filter.html">Products 3 Columns V1</a></li>
+                        <li><a href="product-grid-3-col.html">Products 3 Columns V2</a></li>
+                        <li><a href="product-grid-4-col.html">Products 4 Columns</a></li>
+                      </ul>
                     </li>
-                    <li>
-                        <%= link_to orders_index_path do %>
-                            <i class="fa fa-sticky-note" aria-hidden="true"></i> 我的订单（<%= orders_not_complete_for_current_user.count %>）
-                        <% end %>
+                    <li class="col-sm-3 col-xs-12">
+                      <ul class="list-unstyled">
+                        <li>Products List View</li>
+                        <li><a href="product-list-left-sidebar.html">Products Sidebar Left</a></li>
+                        <li><a href="product-list-right-sidebar.html">Products Sidebar Right</a></li>
+                        <li class="listHeading">Others</li>
+                        <li><a href="single-product.html">Single Product</a></li>
+                        <li><a href="cart-page.html">Cart Page</a></li>
+                      </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          欢迎 <%= current_user.email %> 
-                          <b class="caret"></b>
-                        </a>  
-                        <ul class="dropdown-menu">
-                            <% if current_user.admin? %>
-                                <li><%= link_to("后台商品管理", admin_products_path) %></li>
-                                <li class="divider"> </li>
-
-                            <% else %>
-                                <li><%= link_to "管理我的收货地址", users_delivery_addresses_path %></li>
-                                <li class="divider"> </li>
-                            <% end %>
-
-                            <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
-                        </ul>
+                    <li class="col-sm-3 col-xs-12">
+                      <ul class="list-unstyled">
+                        <li>Checkout</li>
+                        <li><a href="checkout-step-1.html">Step 1 - Address</a></li>
+                        <li><a href="checkout-step-2.html">Step 2 - Shipping</a></li>
+                        <li><a href="checkout-step-3.html">Step 3 - Payment</a></li>
+                        <li><a href="checkout-step-4.html">Step 4 - Payment</a></li>
+                        <li><a href="checkout-complete.html">Order Complete</a></li>
+                      </ul>
                     </li>
-                <% end %>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
-
-            
-
-
+                    <li class="col-sm-3 col-xs-12">
+                      <a href="#" class="menu-photo"><img src="img/menu-photo.jpg" alt="menu-img"></a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">pages</a>
+                  <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="signup.html">Register</a></li>
+                    <li><a href="signup-login.html">Register or Login</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="lost-password.html">Password Recovery</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                    <li><a href="404.html">404 Not Found</a></li>
+                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="blog-right-sidebar.html">Right Sidebar</a></li>
+                    <li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
+                    <li><a href="blog-fullwidth.html">Full Width</a></li>
+                    <li><a href="blog-single-fullwidth.html">Single Post</a></li>
+                    <li><a href="blog-single-right-sidebar.html">Single Right Sidebar</a></li>
+                    <li><a href="blog-single-left-sidebar.html">Single Left Sidebar</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account</a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="account-dashboard.html">Dashboard</a></li>
+                    <li><a href="account-profile.html">Profile</a></li>
+                    <li><a href="account-all-orders.html">All Orders</a></li>
+                    <li><a href="account-single-order.html">Single Order</a></li>
+                    <li><a href="account-wishlist.html">Wishlist</a></li>
+                    <li><a href="account-address.html">Address</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div>
+        </nav
