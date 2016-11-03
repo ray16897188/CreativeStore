@@ -1,4 +1,4 @@
-
+<!---unfinished，copy from product_image -->
 
 <!-- For general Usage -->
 <% image_url ||= "" %>
@@ -6,7 +6,7 @@
 
 
 
-<% if product.image.url.nil? %>
+<% if product.photos[].url.nil? %>
 	<% if size == "medium" %>
 		<% image_url = $DEFAULT_MEDIUM_IMAGE %>
 	<% elsif size == "thumb" %>
@@ -17,11 +17,11 @@
 
 <% else %>
 	<% if size == "medium" %>
-		<% image_url = product.image.url(:medium) %>
+		<% image_url = product.photos[0].url(:medium) %>
 	<% elsif size == "thumb" %>
-		<% image_url = product.image.url(:thumb) %>
+		<% image_url = product.photos[].url(:thumb) %>
 	<% else %>
-		<% image_url = product.image.url %>
+		<% image_url = product.photos[].url %>
 	<% end %>
 <% end %>
 
@@ -45,9 +45,6 @@
 	<% if product.image.present? %>
 		<%= link_to image_tag(image_url, style: "width: 100%"), path %>
 	<% else %>
-		<%= link_to image_tag(image_url, style: "width: 100%"), path %>	
+		<%= link_to image_tag(image_url, style: "width: 100%"), path %>
 	<% end %>
 <% end %>
-
-
-

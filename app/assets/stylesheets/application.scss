@@ -20,8 +20,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+ 
 .jumbotron {
-    background-color:#f4f4f4 !important; 
+    background-color:#f4f4f4 !important;
 }
 
 .vertical-center {
@@ -109,6 +110,8 @@
 .navbar-default .navbar-link:hover {
   color: #f4f4f4;
 }
+
+
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {

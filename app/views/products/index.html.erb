@@ -1,11 +1,56 @@
-<div class="container">
+<div class="section">
+       
 
-  <br>
+        <div class="section__content clearfix">
 
-  <div class="row">
-    <%= render "common/thumb_product_images" %>
-  </div>
+        <% @products.each do |product|%>
 
-</div>
+          <div class="card effect__hover">
 
+            <div class="card__front">
+            	<%= render partial: "common/product_image", locals: {product: product, size: "thumb"} %>
+            </div>
 
+            <div class="card__back">
+              <span class="card__text">
+              	<%= link_to product.description, product_path(product) %>
+              </span>
+            </div>
+          </div>
+
+        <% end %>
+        </div><!-- /card -->
+        <div class="section__content clearfix">
+          <div class="card effect__random" data-id="1">
+            <div class="card__front">
+              <span class="card__text">front</span>
+            </div>
+            <div class="card__back">
+              <span class="card__text">back</span>
+            </div>
+          </div><!-- /card -->
+          <div class="card effect__random" data-id="2">
+            <div class="card__front">
+              <span class="card__text">front</span>
+            </div>
+            <div class="card__back">
+              <span class="card__text">back</span>
+            </div>
+          </div><!-- /card -->
+          <div class="card effect__random" data-id="3">
+            <div class="card__front">
+              <span class="card__text">front</span>
+            </div>
+            <div class="card__back">
+              <span class="card__text">back</span>
+            </div>
+          </div><!-- /card -->
+          <div class="card effect__random" data-id="4">
+            <div class="card__front">
+              <span class="card__text">front</span>
+            </div>
+            <div class="card__back">
+              <span class="card__text">back</span>
+            </div>
+          </div>
+        </div><!-- /card -->

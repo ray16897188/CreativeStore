@@ -5,16 +5,13 @@ class ProductsController < ApplicationController
 		if params[:search]
 			@products = Product.search(params[:search]).order("created_at DESC")
 		else
-			@products = Product.all.order("created_at DESC")
+			@products = Product.all
 		end
 
 		unless @products.any?
 			render :no_result
 		end
 
-		puts "!!!!!!!!!!!!!!!session_id: #{session[:session_id]}"
-		puts "!!!!!!!!!!!!!!!cart_id:    #{session[:cart_id]}"
-		puts "!!!!!!!!!!!!!!!user_id:    #{session[:user_id]}"
 
 		# binding.pry
 
@@ -34,6 +31,6 @@ class ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.require(:product).permit(:title, :description, :price, :quantity, :image)
+		params.require(:product).permit(:title, :description, :price, :quantity, :image,{photos: []})
 	end
 end

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
-
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -35,7 +35,7 @@ gem 'bootstrap-sass'
 gem "simple_form"
 gem "devise"
 gem 'annotate'
-gem "carrierwave"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'pry'
@@ -47,7 +47,7 @@ gem "fog"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
+
   gem "letter_opener"
   gem 'hirb'
   gem 'hirb-unicode'
@@ -57,10 +57,7 @@ group :development, :test do
 
 end
 
-group :production do
-	gem "pg"
-end
-
+ 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
