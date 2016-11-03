@@ -1,17 +1,23 @@
-<br>
-<br>
+<div class="row">
+	<div class="col-md-6">
+		<% if @product.photos.present? %>
+	        <% @product.photos.each_with_index do |p, index| %>
+	          <% if index == 0 %>
+	            <%= image_tag p.medium.url %>
+	            <div style="letter-spacing: -4px">
+	          <% else %>
+	            <%= image_tag p.thumb.url %>
+	          <% end %>
+	        <% end %>
+	        </div>
+	      <% else %>
+	          <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
 
-<div class="container">
-
-
-	<div class="col-md-4">
-
-		<br><br>
-		<%= render partial: "common/product_image", locals: {product: @product, size: "medium", only_image: true} %>	
+	      <% end %>
 	</div>
 
-	<div class="col-md-4 col-md-offset-1">
-		<h2><%= simple_format(@product.title) %></h2>	
+	<div class="col-md-6">
+		<h2><%= simple_format(@product.title) %></h2>
 		<br>
 		<h3>库存</h3><%= @product.quantity %>
 		<h3>描述</h3><%= simple_format(@product.description) %>
@@ -19,28 +25,40 @@
 		<%= render "common/add_to_cart_button" %>
 	</div>
 
-	<div class="col-md-3">
-		<h3>其他类似产品</h3>
-		<br>
-		<div class="row">
-			<% @other_products.each do |other_product| %>
-			<div class="col-md-12">
-
-				<%= render partial: "common/product_image", locals: {product: other_product, size: "thumb"} %>
-				
-				<br>	
-				<%= link_to other_product.title, product_path(other_product), class: "pull-right" %>
-				<br>
-				<span class="pull-right"><%= other_product.price %></span>
-				
-				<br><br>
-			</div>
-			<% end %>
-		</div>
-
-	</div>
 
 </div>
 
+ <br><br>
+<hr>
+
+<div class="row">
 
 
+
+<div class="container">
+
+
+	<h4>其他类似产品</h4>
+	<br>
+	<div class="row">
+		<% @other_products.each do |other_product| %>
+		<div class="col-md-6">
+			<div class="thumbnail">
+			<% if @product.photos.present? %>
+						 <%= image_tag(@product.photos[0].thumb.url, class:"thumbnail") %>
+
+					<% else %>
+							<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+
+					<% end %>
+ 				<div class="caption">
+					<p class='text-center'><%= link_to other_product.title, product_path(other_product) %><p>
+					<p class='text-center'><%= other_product.price %></p>
+			</div>
+		</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+</div>
