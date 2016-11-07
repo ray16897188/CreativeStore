@@ -22,5 +22,5 @@ Product.create!([title: "元认知学习法", description: "掌握元学习，�
 Product.create!([title: "BlockChain讲义", description: "轻松学会Zcash 和 Bitcoin 矿机部署和观察市场行情。 ", price: 1000, quantity: 20])
 Product.create!([title: "敏捷开发与项目管理", description: " 速成敏捷基础概念，风险与需求控管，需求加速执行技巧。", price: 1000, quantity: 20])
 Product.create!([title: "Coffee with Xdite", description: "预订与 Xidite 一小时的咖啡时间。Xdite 答疑解惑，点拨启发。", price: 20000, quantity: 5])
-Product.create!([title: "台湾金书奖《Growth Hack这样做》", description: "Xdite 畅销书，好评如潮，最新翻印。", price: 2000, quantity: 100])
+Product.create!([title: "台湾金书奖《Growth Hack这样做》", description: "Xdite 畅销书，好评如潮，最新翻印。", price: 50, quantity: 100])
 Product.create!([title: "Xdite 周边公仔", description: "限量发行，粉丝必备手办！", price: 50, quantity: 2000])
